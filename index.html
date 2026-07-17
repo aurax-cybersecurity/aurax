@@ -34,51 +34,44 @@
 
 	
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cyber: {
-                            bg: '#07130D',
-                            card: '#101010',
-                            green: '#00C853',
-                            lightGreen: '#00E676',
-                            text: '#EAEAEA',
-                            muted: '#9CA3AF',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['"Space Grotesk"', 'sans-serif'],
-                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
-                    },
-                    backgroundImage: {
-                        'grid-pattern': "linear-gradient(to right, #00C85310 1px, transparent 1px), linear-gradient(to bottom, #00C85310 1px, transparent 1px)",
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="/assets/css/map.css">
+    <link rel="stylesheet" href="/assets/css/social.css">
+    <link rel="stylesheet" href="/assets/css/mobile-menu.css">
+    <link rel="stylesheet" href="/assets/css/deliverables.css">
 
-    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://unpkg.com/feather-icons" defer></script>
+    <script src="/assets/js/main.js" defer></script>
 </head>
-<body class="bg-cyber-bg text-cyber-text font-sans selection:bg-cyber-green selection:text-black antialiased">
+<body class="bg-cyber-bg text-cyber-text font-sans overflow-x-hidden selection:bg-cyber-green selection:text-black antialiased">
 
     <nav class="fixed top-0 w-full z-50 bg-cyber-bg/80 backdrop-blur-md border-b border-cyber-green/20">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-2 group cursor-pointer">
-                <img src="/assets/img/logo-escrit.png" alt="AuraX Logo" class="h-16 transition-transform group-hover:scale-105">
-            </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-3">
+            <a href="index.html" aria-label="AuraX CyberSecurity - Início" class="flex items-center gap-2 group flex-shrink-0">
+                <img src="/assets/img/logo-escrit.png" alt="AuraX CyberSecurity" class="h-12 sm:h-16 transition-transform group-hover:scale-105">
+            </a>
             <div class="hidden md:flex gap-8 text-sm font-medium text-cyber-muted">
                 <a href="#servicos" class="hover:text-cyber-green transition-colors">Serviços</a>
+                <a href="#mapa-ameacas" class="hover:text-cyber-green transition-colors">Mapa ao vivo</a>
                 <a href="#sobre" class="hover:text-cyber-green transition-colors">Sobre</a>
                 <a href="#metodologia" class="hover:text-cyber-green transition-colors">Metodologia</a>
             </div>
-             <a href="contato.html" class="bg-transparent border border-cyber-green text-cyber-green px-6 py-2 rounded-md font-medium min-w-[170px] text-center hover:bg-cyber-green hover:text-cyber-bg hover:shadow-[0_0_20px_rgba(0,200,83,0.4)] transition-all duration-300">
-                Falar com Especialista
+             <a href="contato.html" class="header-contact-cta bg-transparent border border-cyber-green text-cyber-green px-3 sm:px-6 py-2 rounded-md text-xs sm:text-sm font-medium sm:min-w-[170px] text-center hover:bg-cyber-green hover:text-cyber-bg hover:shadow-[0_0_20px_rgba(0,200,83,0.4)] transition-all duration-300">
+                <span class="sm:hidden">Contato</span><span class="hidden sm:inline">Falar com Especialista</span>
             </a>
+            <button type="button" class="mobile-menu-toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menu">
+                <i data-feather="menu" data-menu-open-icon aria-hidden="true"></i>
+                <i data-feather="x" data-menu-close-icon aria-hidden="true"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="mobile-menu" hidden>
+            <div class="mobile-menu-panel">
+                <a href="index.html#servicos" class="mobile-menu-link">Serviços</a>
+                <a href="index.html#mapa-ameacas" class="mobile-menu-link">Mapa ao vivo</a>
+                <a href="index.html#sobre" class="mobile-menu-link">Sobre</a>
+                <a href="index.html#metodologia" class="mobile-menu-link">Metodologia</a>
+                <a href="contato.html" class="mobile-menu-link mobile-menu-contact">Falar com Especialista</a>
+            </div>
         </div>
     </nav>
 
@@ -91,7 +84,7 @@
                 <i data-feather="activity" class="w-4 h-4"></i>
                 <span>Elite Offensive Security</span>
             </div>
-            <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
+            <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
                 Segurança Ofensiva para Empresas <br class="hidden md:block"/> que Levam <span class="text-cyber-green drop-shadow-[0_0_10px_rgba(0,200,83,0.5)]">Segurança a Sério</span>
             </h1>
             <p class="text-lg md:text-xl text-cyber-muted max-w-2xl mx-auto mb-10">
@@ -144,6 +137,66 @@
         </div>
     </section>
 
+    <section id="mapa-ameacas" class="attack-map-section" aria-labelledby="attack-map-title">
+        <div class="attack-map-container">
+            <div class="attack-map-copy">
+                <div class="attack-map-badge">
+                    <span class="attack-map-live-dot" aria-hidden="true"></span>
+                    Threat intelligence em tempo real
+                </div>
+                <h2 id="attack-map-title">O cenário de ameaças em <span>movimento.</span></h2>
+                <p class="attack-map-lead">
+                    O mapa apresenta uma visualização dinâmica das detecções registradas pela infraestrutura global da Kaspersky. Para a AuraX, esse panorama ajuda a contextualizar como superfícies expostas e vulnerabilidades podem ser transformadas em caminhos reais de ataque.
+                </p>
+
+                <ul class="attack-map-list" aria-label="Como o cenário de ameaças se conecta ao trabalho da AuraX">
+                    <li class="attack-map-item">
+                        <span class="attack-map-icon" aria-hidden="true"><i data-feather="search"></i></span>
+                        <div>
+                            <h3>Superfície de ataque</h3>
+                            <p>Serviços expostos, aplicações e configurações inseguras que podem revelar pontos de entrada para um adversário.</p>
+                        </div>
+                    </li>
+                    <li class="attack-map-item">
+                        <span class="attack-map-icon" aria-hidden="true"><i data-feather="crosshair"></i></span>
+                        <div>
+                            <h3>Exploração de vulnerabilidades</h3>
+                            <p>Falhas técnicas e lógicas cujo impacto real é validado de forma controlada durante um Pentest.</p>
+                        </div>
+                    </li>
+                    <li class="attack-map-item">
+                        <span class="attack-map-icon" aria-hidden="true"><i data-feather="activity"></i></span>
+                        <div>
+                            <h3>Simulação de adversários</h3>
+                            <p>Cenários realistas de intrusão reproduzidos, com autorização, para testar a capacidade de proteção da empresa.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="attack-map-visual">
+                <div class="attack-map-toolbar" aria-hidden="true">
+                    <span>GLOBAL THREAT MONITOR</span>
+                    <span class="attack-map-status"><span class="attack-map-live-dot"></span>LIVE</span>
+                </div>
+                <div class="attack-map-frame">
+                    <iframe
+                        src="https://cybermap.kaspersky.com/pt/widget/dynamic/dark"
+                        title="Mapa de ciberameaças em tempo real da Kaspersky"
+                        width="640"
+                        height="640"
+                        loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <p class="attack-map-caption">
+                    Fonte: <a href="https://cybermap.kaspersky.com/pt" target="_blank" rel="noopener noreferrer">Kaspersky Cyberthreat Map</a>. A visualização é indicativa e não representa a totalidade dos ataques globais.
+                </p>
+            </div>
+        </div>
+    </section>
+
     <section id="sobre" class="py-24 bg-[#0a1a12] border-y border-cyber-green/10">
         <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -159,7 +212,7 @@
                         <i data-feather="check-circle" class="w-5 h-5 text-cyber-green flex-shrink-0"></i> Foco total em Offensive Security e Red Team
                     </li>
                     <li class="flex items-center gap-3 text-sm font-medium">
-                        <i data-feather="check-circle" class="w-5 h-5 text-cyber-green flex-shrink-0"></i> Zero falsos positivos em entregas técnicas
+                        <i data-feather="check-circle" class="w-5 h-5 text-cyber-green flex-shrink-0"></i> Achados validados manualmente antes da entrega
                     </li>
                     <li class="flex items-center gap-3 text-sm font-medium">
                         <i data-feather="check-circle" class="w-5 h-5 text-cyber-green flex-shrink-0"></i> Consultoria Lean, ágil e altamente especializada
@@ -249,6 +302,48 @@
         </div>
     </section>
 
+    <section id="entregaveis" class="deliverables-section" aria-labelledby="deliverables-title">
+        <div class="deliverables-container">
+            <div class="deliverables-heading">
+                <div class="deliverables-eyebrow"><i data-feather="package" aria-hidden="true"></i> Entregáveis</div>
+                <h2 id="deliverables-title">Informação técnica para <span>corrigir o risco.</span></h2>
+                <p>Ao final do trabalho, os resultados são organizados para apoiar a remediação técnica e, quando solicitado, a tomada de decisão executiva.</p>
+            </div>
+
+            <div class="deliverables-grid">
+                <article class="deliverable-card deliverable-card-primary">
+                    <div class="deliverable-card-header">
+                        <span class="deliverable-card-icon" aria-hidden="true"><i data-feather="file-text"></i></span>
+                        <span class="deliverable-label">Incluído</span>
+                    </div>
+                    <h3>Relatório técnico</h3>
+                    <p>Documento detalhado para orientar as equipes responsáveis pela correção das vulnerabilidades encontradas.</p>
+                    <ul class="deliverable-list">
+                        <li><i data-feather="check-circle" aria-hidden="true"></i> Achados validados manualmente</li>
+                        <li><i data-feather="check-circle" aria-hidden="true"></i> Evidências e passos de reprodução</li>
+                        <li><i data-feather="check-circle" aria-hidden="true"></i> Risco, impacto e recomendações de remediação</li>
+                    </ul>
+                </article>
+
+                <article class="deliverable-card">
+                    <div class="deliverable-card-header">
+                        <span class="deliverable-card-icon" aria-hidden="true"><i data-feather="bar-chart-2"></i></span>
+                        <span class="deliverable-label deliverable-label-optional">Opcional</span>
+                    </div>
+                    <h3>Sumário executivo</h3>
+                    <p>Visão consolidada dos resultados em linguagem orientada ao negócio, preparada quando solicitada pelo cliente.</p>
+                    <ul class="deliverable-list">
+                        <li><i data-feather="check-circle" aria-hidden="true"></i> Panorama da exposição identificada</li>
+                        <li><i data-feather="check-circle" aria-hidden="true"></i> Impactos e prioridades para o negócio</li>
+                        <li><i data-feather="check-circle" aria-hidden="true"></i> Comunicação objetiva para lideranças</li>
+                    </ul>
+                </article>
+            </div>
+
+            <p class="deliverables-note">O sumário executivo é preparado mediante solicitação do cliente e alinhamento durante a definição do escopo.</p>
+        </div>
+    </section>
+
     <section class="py-24 relative overflow-hidden">
         <div class="absolute inset-0 bg-cyber-green/5"></div>
         <div class="max-w-4xl mx-auto px-6 relative z-10 text-center border border-cyber-green/20 bg-cyber-card/50 backdrop-blur-lg p-12 rounded-2xl">
@@ -278,6 +373,10 @@
                     <p>Sediada em Marechal Cândido Rondon - PR</p>
                     <p>Atuação Global</p>
                 </div>
+                <a href="https://instagram.com/auraxcyber" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram da AuraX CyberSecurity">
+                    <i data-feather="instagram" aria-hidden="true"></i>
+                    <span>@auraxcyber</span>
+                </a>
             </div>
             <div>
                 <h4 class="text-white font-bold mb-4">Serviços</h4>
@@ -307,12 +406,5 @@
         </div>
     </footer>
 
-    <script>
-        // Renderizar os ícones do Feather
-        feather.replace();
-
-        // Atualizar o ano atual no footer
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
 </body>
 </html>

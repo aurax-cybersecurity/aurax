@@ -14,54 +14,49 @@
 
     <link rel="icon" type="image/png" href="/assets/img/logo.png">
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cyber: {
-                            bg: '#07130D',
-                            card: '#101010',
-                            green: '#00C853',
-                            lightGreen: '#00E676',
-                            text: '#EAEAEA',
-                            muted: '#9CA3AF',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['"Space Grotesk"', 'sans-serif'],
-                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
-                    },
-                    backgroundImage: {
-                        'grid-pattern': "linear-gradient(to right, #00C85310 1px, transparent 1px), linear-gradient(to bottom, #00C85310 1px, transparent 1px)",
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="/assets/css/contato.css">
+    <link rel="stylesheet" href="/assets/css/social.css">
+    <link rel="stylesheet" href="/assets/css/mobile-menu.css">
 
-    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://unpkg.com/feather-icons" defer></script>
+    <script src="/assets/js/main.js" defer></script>
 </head>
 <body class="bg-cyber-bg text-cyber-text font-sans min-h-screen flex flex-col relative overflow-x-hidden selection:bg-cyber-green selection:text-black antialiased">
 
     <div class="fixed inset-0 bg-grid-pattern bg-[size:40px_40px] opacity-20 pointer-events-none"></div>
     <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-cyber-green rounded-full blur-[180px] opacity-10 pointer-events-none"></div>
 
-    <nav class="relative z-50 w-full pt-8 px-6">
-        <div class="max-w-4xl mx-auto flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <img src="/assets/img/logo.png" alt="AuraX Logo" class="h-16 transition-transform hover:scale-105">
-            </div>
-            <a href="index.html" class="flex items-center gap-2 text-sm text-cyber-muted hover:text-cyber-green transition-colors group">
-                <i data-feather="arrow-left" class="w-4 h-4 transition-transform group-hover:-translate-x-1"></i>
-                Retornar ao Início
+    <nav class="fixed top-0 w-full z-50 bg-cyber-bg/80 backdrop-blur-md border-b border-cyber-green/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-3">
+            <a href="index.html" aria-label="AuraX CyberSecurity - Início" class="flex items-center gap-2 group flex-shrink-0">
+                <img src="/assets/img/logo-escrit.png" alt="AuraX CyberSecurity" class="h-12 sm:h-16 transition-transform group-hover:scale-105">
             </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-cyber-muted">
+                <a href="index.html#servicos" class="hover:text-cyber-green transition-colors">Serviços</a>
+                <a href="index.html#mapa-ameacas" class="hover:text-cyber-green transition-colors">Mapa ao vivo</a>
+                <a href="index.html#sobre" class="hover:text-cyber-green transition-colors">Sobre</a>
+                <a href="index.html#metodologia" class="hover:text-cyber-green transition-colors">Metodologia</a>
+            </div>
+            <a href="contato.html" aria-current="page" class="header-contact-cta bg-cyber-green border border-cyber-green text-cyber-bg px-3 sm:px-6 py-2 rounded-md text-xs sm:text-sm font-medium sm:min-w-[170px] text-center shadow-[0_0_20px_rgba(0,200,83,0.25)] transition-all duration-300">
+                <span class="sm:hidden">Contato</span><span class="hidden sm:inline">Falar com Especialista</span>
+            </a>
+            <button type="button" class="mobile-menu-toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menu">
+                <i data-feather="menu" data-menu-open-icon aria-hidden="true"></i>
+                <i data-feather="x" data-menu-close-icon aria-hidden="true"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="mobile-menu" hidden>
+            <div class="mobile-menu-panel">
+                <a href="index.html#servicos" class="mobile-menu-link">Serviços</a>
+                <a href="index.html#mapa-ameacas" class="mobile-menu-link">Mapa ao vivo</a>
+                <a href="index.html#sobre" class="mobile-menu-link">Sobre</a>
+                <a href="index.html#metodologia" class="mobile-menu-link">Metodologia</a>
+                <a href="contato.html" class="mobile-menu-link mobile-menu-contact" aria-current="page">Falar com Especialista</a>
+            </div>
         </div>
     </nav>
 
-    <main class="flex-grow flex items-center justify-center relative z-10 px-6 py-12">
+    <main class="flex-grow flex items-center justify-center relative z-10 px-4 sm:px-6 pt-32 pb-20 md:pt-40 md:pb-24">
         <div class="w-full max-w-4xl grid md:grid-cols-2 gap-8 items-center">
             
             <div class="mb-8 md:mb-0">
@@ -85,35 +80,35 @@
 
             <div class="space-y-4">
                 
-                <a href="https://wa.me/5545998507575?text=Olá, gostaria de falar com um especialista da AuraX CyberSecurity sobre segurança ofensiva." target="_blank" rel="noopener noreferrer" class="group block relative bg-cyber-card/80 backdrop-blur-md border border-white/10 p-6 rounded-xl hover:border-cyber-green/50 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+                <a href="https://wa.me/5545998507575?text=Olá, gostaria de falar com um especialista da AuraX CyberSecurity sobre segurança ofensiva." target="_blank" rel="noopener noreferrer" class="group block min-w-0 relative bg-cyber-card/80 backdrop-blur-md border border-white/10 p-5 sm:p-6 rounded-xl hover:border-cyber-green/50 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
                     <div class="absolute inset-0 bg-gradient-to-r from-cyber-green/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <div class="relative z-10 flex items-center justify-between">
-                        <div class="flex items-center gap-4">
+                        <div class="flex items-center gap-3 sm:gap-4 min-w-0">
                             <div class="w-12 h-12 rounded-lg bg-[#25D366]/10 border border-[#25D366]/20 flex items-center justify-center group-hover:shadow-[0_0_15px_rgba(37,211,102,0.4)] transition-all">
                                 <i data-feather="message-circle" class="w-6 h-6 text-[#25D366]"></i>
                             </div>
-                            <div>
+                            <div class="min-w-0">
                                 <h3 class="text-lg font-bold text-white">Canal Ágil (WhatsApp)</h3>
                                 <p class="text-sm text-cyber-muted">Contato rápido e direto</p>
                             </div>
                         </div>
-                        <i data-feather="arrow-up-right" class="w-5 h-5 text-cyber-muted group-hover:text-cyber-green transition-colors"></i>
+                        <i data-feather="arrow-up-right" class="hidden sm:block w-5 h-5 text-cyber-muted group-hover:text-cyber-green transition-colors"></i>
                     </div>
                 </a>
 
-                <a href="mailto:contato@auraxcyber.com.br" class="group block relative bg-cyber-card/80 backdrop-blur-md border border-white/10 p-6 rounded-xl hover:border-cyber-green/50 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+                <a href="mailto:contato@auraxcyber.com.br" class="group block min-w-0 relative bg-cyber-card/80 backdrop-blur-md border border-white/10 p-5 sm:p-6 rounded-xl hover:border-cyber-green/50 transition-all duration-300 hover:-translate-y-1 overflow-hidden">
                     <div class="absolute inset-0 bg-gradient-to-r from-cyber-green/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <div class="relative z-10 flex items-center justify-between">
-                        <div class="flex items-center gap-4">
+                        <div class="flex items-center gap-3 sm:gap-4 min-w-0">
                             <div class="w-12 h-12 rounded-lg bg-cyber-green/10 border border-cyber-green/20 flex items-center justify-center group-hover:shadow-[0_0_15px_rgba(0,200,83,0.4)] transition-all">
                                 <i data-feather="mail" class="w-6 h-6 text-cyber-green"></i>
                             </div>
-                            <div>
+                            <div class="min-w-0">
                                 <h3 class="text-lg font-bold text-white">Contato Corporativo</h3>
-                                <p class="text-sm text-cyber-muted font-mono mt-0.5">contato@auraxcyber.com.br</p>
+                                <p class="text-xs sm:text-sm text-cyber-muted font-mono mt-0.5 break-all">contato@auraxcyber.com.br</p>
                             </div>
                         </div>
-                        <i data-feather="arrow-up-right" class="w-5 h-5 text-cyber-muted group-hover:text-cyber-green transition-colors"></i>
+                        <i data-feather="arrow-up-right" class="hidden sm:block w-5 h-5 text-cyber-muted group-hover:text-cyber-green transition-colors"></i>
                     </div>
                 </a>
                 
@@ -128,8 +123,41 @@
         </div>
     </main>
 
-    <script>
-        feather.replace();
-    </script>
+    <footer class="relative z-10 bg-cyber-bg border-t border-white/5 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div class="col-span-1 md:col-span-2">
+                <a href="index.html" class="inline-flex items-center gap-2 mb-6 group">
+                    <img src="/assets/img/logo.png" alt="AuraX CyberSecurity" class="h-16 transition-transform group-hover:scale-105">
+                </a>
+                <p class="text-cyber-muted text-sm max-w-sm mb-6 leading-relaxed">Consultoria técnica premium focada em simulações realistas de ciberataques e proteção corporativa avançada.</p>
+                <div class="text-cyber-muted text-sm"><p>Sediada em Marechal Cândido Rondon - PR</p><p>Atuação Global</p></div>
+                <a href="https://instagram.com/auraxcyber" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram da AuraX CyberSecurity"><i data-feather="instagram" aria-hidden="true"></i><span>@auraxcyber</span></a>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Serviços</h4>
+                <ul class="space-y-2 text-sm text-cyber-muted">
+                    <li><a href="index.html#servicos" class="hover:text-cyber-green transition-colors">Pentest Web</a></li>
+                    <li><a href="index.html#servicos" class="hover:text-cyber-green transition-colors">Red Team</a></li>
+                    <li><a href="index.html#servicos" class="hover:text-cyber-green transition-colors">Vulnerability Assessment</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Empresa</h4>
+                <ul class="space-y-2 text-sm text-cyber-muted">
+                    <li><a href="index.html#sobre" class="hover:text-cyber-green transition-colors">Sobre Nós</a></li>
+                    <li><a href="index.html#metodologia" class="hover:text-cyber-green transition-colors">Metodologia</a></li>
+                    <li><a href="contato.html" class="text-cyber-green">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 text-center flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-xs text-cyber-muted">&copy; <span id="year"></span> AuraX CyberSecurity. Todos os direitos reservados.</p>
+            <div class="flex gap-4 text-xs text-cyber-muted">
+                <a href="privacidade.html" class="hover:text-cyber-green transition-colors">Política de Privacidade</a>
+                <a href="termos.html" class="hover:text-cyber-green transition-colors">Termos de Serviço</a>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
