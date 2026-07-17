@@ -1,0 +1,32 @@
+.footer-social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-top: 1.25rem;
+    padding: 0.55rem 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0.625rem;
+    color: #9ca3af;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 250ms ease, border-color 250ms ease, background 250ms ease, transform 250ms ease;
+}
+
+.footer-social-link svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    color: #00c853;
+}
+
+.footer-social-link:hover {
+    color: #00e676;
+    border-color: rgba(0, 200, 83, 0.35);
+    background: rgba(0, 200, 83, 0.07);
+    transform: translateY(-1px);
+}
+
+.footer-social-link:focus-visible {
+    outline: 2px solid #00c853;
+    outline-offset: 3px;
+}
